@@ -19,9 +19,10 @@ body {
 
 .cup {
     position: relative;
-    width: 200px;
+    width: 250px;
     height: 300px;
-    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    /* background: linear-gradient(to right, #f9f9f9, #d9d9d9); */
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
     border-bottom-left-radius: 45%;
     border-bottom-right-radius: 45%;
 
@@ -33,7 +34,7 @@ body {
     left: 0;
     width: 100%;
     height: 60px;
-    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
     border-radius: 50%;
 }
 
@@ -43,7 +44,7 @@ body {
     left: 10px;
     width: calc(100% - 20px);
     height: 50px;
-    background: linear-gradient(to right, #f9f9f9, #d9d9d9);
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
     border-radius: 50%;
     box-sizing: border-box;
     overflow: hidden;
@@ -65,11 +66,14 @@ body {
     top: 40px;
     width: 160px;
     height: 180px;
-    border: 25px solid #dcdcdc;
+    border: 25px solid #537895;
+
     border-left: 25px solid transparent;
     border-bottom: 25px solid transparent;
     border-radius: 50%;
     transform: rotate(42deg);
+
+
 }
 
 .plate {
@@ -79,9 +83,88 @@ body {
     transform: translateX(-50%);
     width: 500px;
     height: 200px;
-    background: linear-gradient(to right, #f9f9f9, #e7e7e7);
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
     border-radius: 50%;
     box-shadow: 0 35px 35px rgba(0, 0, 0, 0.2);
+}
+
+.plate1 {
+    position: absolute;
+    bottom: -50px;
+    left: -90%;
+    transform: translateX(-80%);
+    width: 350px;
+    height: 200px;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+    border-radius: 50%;
+    box-shadow: 0 35px 35px rgba(0, 0, 0, 0.2);
+}
+
+.center-biscuit {
+    position: absolute;
+    margin: 0;
+    width: 100px;
+    height: 60px;
+
+    background: linear-gradient(87.4deg, rgb(255, 241, 165) 1.9%, rgb(200, 125, 76) 49.7%, rgb(83, 54, 54) 100.5%);
+    border-radius: 50%;
+    margin: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.biscuit {
+    position: absolute;
+    margin: 0;
+    width: 100px;
+    height: 60px;
+    /* background: linear-gradient(#c57e65, #e28462); */
+    background: linear-gradient(87.4deg, rgb(255, 241, 165) 1.9%, rgb(200, 125, 76) 49.7%, rgb(83, 54, 54) 100.5%);
+    border-radius: 50%;
+    margin: auto;
+    top: 40%;
+    left: 80%;
+    aspect-ratio: 1;
+}
+
+.biscuit:nth-of-type(1) {
+    transform: translate(calc(cos(0deg)*10px), calc(sin(0deg)*10px))
+}
+
+.biscuit:nth-of-type(2) {
+    transform: translate(calc(cos(30deg)*-80px), calc(sin(30deg)*90px))
+}
+
+.biscuit:nth-of-type(3) {
+    transform: translate(calc(cos(60deg)*-300px), calc(sin(60deg)*12px))
+}
+
+.biscuit:nth-of-type(4) {
+    transform: translate(calc(cos(90deg)*-60px), calc(sin(90deg)*-60px))
+}
+
+.plate1::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border-radius: 50%;
+    background: linear-gradient(112.1deg, rgb(32, 38, 57) 11.4%, rgb(63, 76, 119) 70.2%);
+}
+
+.plate1::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    background: radial-gradient(rgba(0, 0, 0, 0.4) 25%, transparent, transparent);
+    border-radius: 50%;
+
 }
 
 .plate::before {
@@ -92,6 +175,61 @@ body {
     right: 10px;
     bottom: 10px;
     border-radius: 50%;
-    background: linear-gradient(to left, #f9f9f9, #e7e7e7);
+    background: linear-gradient(to top, #09203f 0%, #537895 100%);
 
+}
+
+.plate::after {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+    background: radial-gradient(rgba(0, 0, 0, 0.2) 25%, transparent, transparent);
+    border-radius: 50%;
+
+}
+
+.vapour {
+    position: relative;
+    display: flex;
+    z-index: 1;
+    padding: 0 20px;
+
+}
+
+.vapour span {
+    position: relative;
+    bottom: 50px;
+    display: block;
+    margin: 0 2px 50px;
+    min-width: 8px;
+    height: 120px;
+    background: white;
+    border-radius: 50%;
+    animation: animate 5s linear infinite;
+    filter: blur(8px);
+    animation-delay: calc(var(--i)* -0.5s)
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateY(-150px) scaleX(5);
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(-300px) scaleX(10);
+        opacity: 0;
+    }
 }
